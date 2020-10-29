@@ -27,8 +27,8 @@ export class ServiciosService {
          // para evitar error de null.ToString()
       params = params.append("Importe", Importe.toString());
       
-    if (Importe != null)                                {                                                      
-    params = params.append("CantidadHoras", CantidadHoras.toString());                               }    ¿
+    if (Importe != null)  {                                                      
+    params = params.append("CantidadHoras", CantidadHoras.toString());}    
     return this.httpClient.get(this.resourceUrl, { params: params });
   }
 
