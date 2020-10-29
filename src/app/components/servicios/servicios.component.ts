@@ -48,13 +48,14 @@ export class ServiciosComponent implements OnInit {
       ],
       Importe: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
       CantidadHoras: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
-     
-    });
       
+    });
+      this.GetServicios();
   }
 
-   GetServicios() {
-    this.servicioService.get().subscribe((res: Servicio[]) => {
+    GetServicios() {
+    this.servicioService.get()
+    .subscribe((res:Servicio[]) => {
       this.Lista = res;
     });
   }
