@@ -20,6 +20,7 @@ import { ArticulosComponent } from "./components/articulos/articulos.component";
 import { ArticulosFamiliasComponent } from "./components/articulos-familias/articulos-familias.component";
 import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.component";
 import { ServiciosComponent } from './components/servicios/servicios.component';
+import { ServiciosService } from './services/servicios.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
       { path: 'inicio', component: InicioComponent },
       { path: 'articulos', component: ArticulosComponent },
       { path: 'articulosfamilias', component: ArticulosFamiliasComponent },
-      { path: 'servicios', component: ServicioComponent },
+      { path: 'servicios', component: ServiciosComponent },
     ]),                                   
     NgbPaginationModule,
     NgbModalModule,
@@ -48,7 +49,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
   entryComponents: [ModalDialogComponent],
   providers: [
      {provide: APP_BASE_HREF, useValue : '/' },
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true, providers: [ServiciosService] }
   ],
   bootstrap: [AppComponent]
 })
