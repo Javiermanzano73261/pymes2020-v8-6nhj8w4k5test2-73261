@@ -50,7 +50,7 @@ export class ServiciosComponent implements OnInit {
       CantidadHoras: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
       
     });
-      this.GetServicios();
+     // this.GetServicios();
   }
 
     GetServicios() {
