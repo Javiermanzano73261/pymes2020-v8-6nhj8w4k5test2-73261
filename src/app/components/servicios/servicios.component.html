@@ -121,19 +121,6 @@
                 </span>
 			</div>
 		</div>
-
-		
-		<!--campo activo-->
-		<div class="form-group row">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Activo">Activo</label>
-			<div class="col-sm-6">
-				<select name="Activo" disabled class="form-control" formControlName="Activo">
-                    <option *ngFor="let opt of OpcionesActivo" [ngValue]="opt.Id">
-                        ‌{{ opt.Nombre }}
-                    <option>
-                </select>
-			</div>
-		</div>
 	</fieldset>
 
 	<!-- Botones Grabar, Cancelar/Volver' -->
