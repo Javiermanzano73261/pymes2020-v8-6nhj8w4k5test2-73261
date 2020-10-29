@@ -65,11 +65,11 @@ export class ServiciosComponent implements OnInit {
 
   }
 
-  GetServicios() {
-    this.servicioService.get()
-    .subscribe((res:Servicio[]) => {
-      this.Lista = res;
-  }}
+   GetFamiliasArticulos() {
+    this.articulosFamiliasService.get().subscribe((res: ArticuloFamilia[]) => {
+      this.Familias = res;
+    });
+  }
 
   Agregar() {
     this.AccionABMC = "A";
