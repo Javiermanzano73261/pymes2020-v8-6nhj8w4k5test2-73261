@@ -33,9 +33,9 @@ export class ServiciosService {
     return this.httpClient.post(this.resourceUrl, obj);
   }
 
- /* put(Id: number, obj:Servicio) {
+  put(Id: number, obj:Servicio) {
     return this.httpClient.put(this.resourceUrl + Id, obj);
-  }*/
+  }
 
   /*delete(Id) {
     return this.httpClient.delete(this.resourceUrl + Id);
