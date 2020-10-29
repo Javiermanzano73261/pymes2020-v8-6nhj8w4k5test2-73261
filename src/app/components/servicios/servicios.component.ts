@@ -16,7 +16,7 @@ export class ServiciosComponent implements OnInit {
     A: "(Agregar)",
     L: "(Listado)"
   };
-  AccionABMC = "L"; // inicialmente inicia en el listado de articulos (buscar con parametros)
+  AccionABMC = "L"; // inicialmente inicia en el listado de servicios (buscar con parametros)
   Mensajes = {
     SD: " No se encontraron registros...",
     RD: " Revisar los datos ingresados..."

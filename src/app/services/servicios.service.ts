@@ -23,20 +23,21 @@ export class ServiciosService {
     let params = new HttpParams();    
     return this.httpClient.get(this.resourceUrl, { params: params });
   }
-
+/*
   getById(Id: number) {
     return this.httpClient.get(this.resourceUrl + Id);
-  }
+  }*/
 
-  post(obj:Servicio) {
+  post(obj) {
+    delete obj.IdServicio
     return this.httpClient.post(this.resourceUrl, obj);
   }
 
-  put(Id: number, obj:Servicio) {
+ /* put(Id: number, obj:Servicio) {
     return this.httpClient.put(this.resourceUrl + Id, obj);
-  }
+  }*/
 
-  delete(Id) {
+  /*delete(Id) {
     return this.httpClient.delete(this.resourceUrl + Id);
-  }
+  }*/
 }
