@@ -14,9 +14,6 @@ export class ServiciosComponent implements OnInit {
   Titulo = "Servicios"; 
   TituloAccionABMC = {
     A: "(Agregar)",
-    B: "(Eliminar)",
-    M: "(Modificar)",
-    C: "(Consultar)",
     L: "(Listado)"
   };
   AccionABMC = "L"; // inicialmente inicia en el listado de articulos (buscar con parametros)
@@ -27,16 +24,7 @@ export class ServiciosComponent implements OnInit {
 
   Lista: Servicio[] = [];
   RegistrosTotal: number;
-  SinBusquedasRealizadas = true;
 
-  Pagina = 1; // inicia pagina 1
-
-  // opciones del combo activo
-  OpcionesActivo = [
-    { Id: null, Nombre: "" },
-    { Id: true, Nombre: "SI" },
-    { Id: false, Nombre: "NO" }
-  ];
 
   FormFiltro: FormGroup;
   FormReg: FormGroup;
@@ -47,6 +35,7 @@ export class ServiciosComponent implements OnInit {
     private servicioService: ServiciosService,
     private modalDialogService: ModalDialogService
   ) {}
+  
 
   ngOnInit() {
     this.FormFiltro = this.formBuilder.group({
@@ -59,8 +48,9 @@ export class ServiciosComponent implements OnInit {
       ],
       Importe: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
       CantidadHoras: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
+     
     });
-
+      
   }
 
    GetServicios() {
@@ -79,7 +69,6 @@ export class ServiciosComponent implements OnInit {
 
    // Buscar segun los filtros, establecidos en FormReg
   Buscar() {
-    this.SinBusquedasRealizadas = false;
     this.servicioService
       .get()
       .subscribe((res: any) => {
@@ -88,17 +77,6 @@ export class ServiciosComponent implements OnInit {
       });
   }
 
-  // comienza la modificacion, luego la confirma con el metodo Grabar
-  Modificar(Dto) {
-    if (!Dto.Activo) {
-      this.modalDialogService.Alert('No puede modificarse un registro Inactivo.');
-      return;
-    }
-    this.submitted = false;
-    this.FormReg.markAsPristine();
-    this.FormReg.markAsUntouched();
-    this.Buscar();
-  }
 
   // grabar tanto altas como modificaciones
   Grabar() {
@@ -122,7 +100,7 @@ export class ServiciosComponent implements OnInit {
     } else {
       // modificar put
       this.servicioService
-        .put(itemCopy.IdArticulo, itemCopy)
+        .put(itemCopy.IdServicio, itemCopy)
         .subscribe((res: any) => {
           this.Volver();
           this.modalDialogService.Alert('Registro modificado correctamente.');
@@ -137,9 +115,7 @@ export class ServiciosComponent implements OnInit {
     this.AccionABMC = "L";
   }
 
-  ImprimirListado() {
-    this.modalDialogService.Alert('Sin desarrollar...');
-  }
+  
 
  
 
