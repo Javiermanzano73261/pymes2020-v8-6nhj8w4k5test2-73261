@@ -65,9 +65,9 @@ export class ServiciosComponent implements OnInit {
 
   }
 
-   GetFamiliasArticulos() {
-    this.articulosFamiliasService.get().subscribe((res: ArticuloFamilia[]) => {
-      this.Familias = res;
+   GetServicios() {
+    this.servicioService.get().subscribe((res: Servicio[]) => {
+      this.Lista = res;
     });
   }
 
