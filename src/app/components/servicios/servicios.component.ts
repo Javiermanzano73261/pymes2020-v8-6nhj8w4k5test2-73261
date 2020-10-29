@@ -50,14 +50,12 @@ export class ServiciosComponent implements OnInit {
 
   ngOnInit() {
     this.FormFiltro = this.formBuilder.group({
-      Nombre: [""],
-      Activo: [null]
     });
     this.FormReg = this.formBuilder.group({
       IdServicio: [0],
       Descripcion: [
         "",
-        [Validators.required, Validators.minLength(4), Validators.maxLength(55)]
+        [Validators.required, Validators.minLength(10), Validators.maxLength(30)]
       ],
       Importe: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
       CantidadHoras: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],

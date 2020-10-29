@@ -4,19 +4,15 @@
 <form name="FormFiltro" [formGroup]='FormFiltro' class="bg-light" *ngIf="AccionABMC == 'L'" >
 		<!-- Botones -->
 		<div class="row justify-content-center">
-			<button type="button" class="btn btn-primary" (click)="Buscar()">
-            <span class="fas fa-search"> </span> Mostrar Listado
-        </button>
-        &nbsp;
 			<button type="button" class="btn btn-primary" (click)="Agregar()">
             <span class="fas fa-plus"> </span> 
-            Agregar
+            Agregar Servicio
         </button>
 		</div>
 </form>
 
 <!-- Tabla de resutados de busqueda y Paginador-->
-<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Lista?.length > 0">
+<div id="divTablaResultados">
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
@@ -38,14 +34,6 @@
 		<div class="row bg-light">
 			<div class="col-sm-3">
 				<span class="label label-default font-weight-bold">Registros: {{RegistrosTotal}}</span>
-			</div>
-			<div class="col-sm-6 text-center">
-				<ngb-pagination [(page)]="Pagina" (pageChange)="Buscar()" [pageSize]="10" [maxSize]="10"
-					[collectionSize]="RegistrosTotal"></ngb-pagination>
-			</div>
-			<div class="col-sm-3 text-right">
-				<button type="button" class="btn btn-primary" (click)="ImprimirListado()"><span class="fas fa-print"></span>
-                    Imprimir</button>
 			</div>
 		</div>
 	</div>
